@@ -5,7 +5,6 @@ import 'screen/users_list_screen.dart';
 import 'viewmodels/user_list_view_model.dart';
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
