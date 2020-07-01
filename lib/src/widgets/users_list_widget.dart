@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:user_search_app/src/viewmodels/user_view_model.dart';
+
+import '../viewmodels/user_list_view_model.dart';
 
 class UsersListWidget extends StatelessWidget {
   final List<UserViewModel> userslist;
@@ -8,6 +11,8 @@ class UsersListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userData = Provider.of<UserListViewModel>(context);
+
     return ListView.builder(
       itemCount: this.userslist.length,
       itemBuilder: (context, index) {
@@ -26,9 +31,13 @@ class UsersListWidget extends StatelessWidget {
                       title:
                           Text('Name : ${user.name}\n Email : ${user.email}'),
                       subtitle: Text('Phone : ${user.phone}'),
-                      trailing: Icon(
-                        Icons.delete_outline,
-                        color: Colors.red,
+                      trailing: IconButton(
+                        tooltip: "Delete",
+                        icon: Icon(
+                          Icons.delete_outline,
+                          color: Colors.red,
+                        ),
+                        onPressed: () => userData.doDelete(user.id),
                       ),
                     ),
                     Text(user.email),
@@ -50,9 +59,13 @@ class UsersListWidget extends StatelessWidget {
                       title:
                           Text('Name : ${user.name}\n Email : ${user.email}'),
                       subtitle: Text('Phone : ${user.phone}'),
-                      trailing: Icon(
-                        Icons.delete_outline,
-                        color: Colors.red,
+                      trailing: IconButton(
+                        tooltip: "Delete",
+                        icon: Icon(
+                          Icons.delete_outline,
+                          color: Colors.red,
+                        ),
+                        onPressed: () => userData.doDelete(user.id),
                       ),
                     ),
                     Text(user.email),

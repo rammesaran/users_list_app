@@ -20,4 +20,9 @@ class UserListViewModel extends ChangeNotifier {
         .toList();
     notifyListeners();
   }
+
+  void doDelete(int id) {
+    filteredUsers.removeWhere((element) => element.id == id);
+    notifyListeners();
+  }
 }
