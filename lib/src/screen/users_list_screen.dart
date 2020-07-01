@@ -25,7 +25,7 @@ class _UsersListState extends State<UsersList> {
         centerTitle: true,
       ),
       body: Container(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Column(
